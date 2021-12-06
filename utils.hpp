@@ -1,12 +1,28 @@
+/**
+ * @file utils.hpp
+ * @author Gustavo Simões e Izabelle Custodia Teixeira Sebastião
+ * @brief 
+ * @version 1.0
+ * @date 2021-12-06
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <iostream>
 
 using namespace std;
 
+// Obteção do número inteiro ASCII correspondente a
+// um caracter de posição i da chave de criptografia.
 int getKeyValue(string key, int i)
 {
     return int(key[i % key.size()]);
 }
 
+// Obtenção de número na base hexadecimal por meio
+// de um número decimal.
+// Formato de saída: 4 bits
 string getHex(int number)
 {
 
@@ -39,6 +55,7 @@ string getHex(int number)
     }
 }
 
+// Alteração da chave de criptografia
 int changePassword()
 {
 

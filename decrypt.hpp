@@ -1,3 +1,14 @@
+/**
+ * @file decrypt.hpp
+ * @author Gustavo Simões e Izabelle Custodia Teixeira Sebastião
+ * @brief 
+ * @version 1.0
+ * @date 2021-12-06
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -6,6 +17,7 @@ using namespace std;
 
 int decrypt(string key)
 {
+    // Abertura do arquivo a ser descriptografado
     cout << "Selecione o arquivo para descriptografar:";
     string text, textpath;
     cin >> textpath;
@@ -26,12 +38,17 @@ int decrypt(string key)
 
     text = textsst.str();
 
+    // Caso o número de caracteres do arquivo a  ser descriptografado
+    // não seja múltiplo de 4, o arquivo é considerado corrompido.
+    // Isso acontece porque o texto criptografado é mandido
+    // criptografado em base hexadecimal 4 bits.
     if (text.size() % 4 != 0)
     {
         cout << "Error! Arquivo cripitografado corrompido.";
         return 1;
     }
 
+    // Criação do arquivo com o texto descriptografado
     ofstream outfile;
     outfile.open("out_decrypt.txt");
 
@@ -49,6 +66,7 @@ int decrypt(string key)
         outfile << (char)orginal;
     }
 
+    // Fechamento dos arquivos utilizados pelo programa
     textfilereader.close();
     outfile.close();
 

@@ -1,3 +1,14 @@
+/**
+ * @file encrypt.hpp
+ * @author Gustavo Simões e Izabelle Custodia Teixeira Sebastião
+ * @brief 
+ * @version 1.0
+ * @date 2021-12-06
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -6,6 +17,7 @@ using namespace std;
 
 int encrypt(string key)
 {
+    // Seleção do arquivo para ser criptografado
     cout << "Selecione o arquivo para criptografar:";
     string text, textpath;
     cin >> textpath;
@@ -26,6 +38,7 @@ int encrypt(string key)
 
     text = textsst.str();
 
+    // Criação do arquivo com o texto criptografado
     ofstream outfile;
     outfile.open("out_encrypt.txt");
 
@@ -36,6 +49,7 @@ int encrypt(string key)
         outfile << getHex(value);
     }
 
+    // Fechamento dos arquivos utilizados pelo programa
     textfilereader.close();
     outfile.close();
 
