@@ -1,4 +1,5 @@
 > :warning: **THIS IS NOT A SECURE WAY TO ENCRYPT DATA**
+> 
 > This is just an academic project to illustrate some cryptography concepts with c++.
 
 <br/>
